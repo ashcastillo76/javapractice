@@ -2,56 +2,58 @@ import java.util.ArrayList;
 
 public class Basic13{
 
-    // public void print1to255(){
-    //     int i = 1;
-    //     while(i < 256){
-    //         System.out.println(i);
-    //         i++;
-    //     }
-    // }
+    public void print1to255(){
+        int i = 1;
+        while(i < 256){
+            System.out.println(i);
+            i++;
+        }
+    }
 
-    // public void printOdd(){
-    //     for(int i = 1; i <= 255; i++){
-    //         if(i %2 == 1){
-    //             System.out.println(i);
-    //         }
-    //     }
-    // }
+    public void printOdd(){
+        for(int i = 1; i <= 255; i++){
+            // check for odd numbers and print
+            if(i %2 == 1){
+                System.out.println(i);
+            }
+        }
+    }
 
-    // public void sumNums(){
-    //     int sum = 0;
-    //     for(int i =0; i<= 255; i++){
-    //         sum+=i;
-    //         System.out.println("New Number: " + i +" " + "Sum: " + sum);
-    //     }
-    // }
+    public void sumNums(){
+        int sum = 0;
+        for(int i =0; i<= 255; i++){
+            sum+=i;
+            System.out.println("New Number: " + i +" " + "Sum: " + sum);
+        }
+    }
 
+// iterate and print the array
+public void iterArr(int[] myArr){
+    for(int i=0; i < myArr.length; i++){
+        System.out.println(myArr[i]);
+    }
+}
 
-// public void iterArr(int[] myArr){
-//     for(int i=0; i < myArr.length; i++){
-//         System.out.println(myArr[i]);
-//     }
-// }
+public int findMax(int[] myArr){
+    int max = 0;
+    for(int i =0; i < myArr.length; i++){
+        // find the max and assign it to myArr[i] for each iteration
+        if(myArr[i] > max){
+            max = myArr[i];
+        }
+    }
+    return max;
+}
 
-// public int findMax(int[] myArr){
-//     int max = 0;
-//     for(int i =0; i < myArr.length; i++){
-//         if(myArr[i] > max){
-//             max = myArr[i];
-//         }
-//     }
-//     return max;
-// }
-
-// public int findAvg(int[] myArr){
-//     int sum =0;
-//     int avg =0;
-//     for(int i =0; i < myArr.length; i++){
-//         sum += myArr[i];
-//         avg = sum/ myArr.length;
-//     }
-//     return avg;
-// }
+public int findAvg(int[] myArr){
+    int sum =0;
+    int avg =0;
+    for(int i =0; i < myArr.length; i++){
+        sum += myArr[i];
+        avg = sum/ myArr.length;
+    }
+    return avg;
+}
 
 public ArrayList oddArray(){
     ArrayList<Object> y = new ArrayList<Object>();
@@ -126,8 +128,6 @@ public void shiftValues(int[] myArr){
         myArr[i] = temp;
     }
 }
-
-
 
 
 }
