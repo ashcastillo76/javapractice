@@ -7,5 +7,6 @@ public class HumanTest {
         h1.attack(h3);
         System.out.println(h1.health);
 
+
     }
 }
