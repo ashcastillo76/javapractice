@@ -1,3 +1,4 @@
+
 public class HumanTest {
     public static void main(String[] args){
         Human h1 = new Human();
@@ -5,8 +6,25 @@ public class HumanTest {
         Human h3 = new Human();
         h1.attack(h2);
         h1.attack(h3);
-        System.out.println(h1.health);
+        Ninja n1 = new Ninja();
+        n1.steal(h1);
+
+        Wizard w1 = new Wizard();
+        Wizard w2 = new Wizard();
+
+        n1.steal(w1);
+        w2.fireball(n1);
+
+        Samurai s1 = new Samurai();
+
+        s1.deathBlow(n1);
+        s1.meditate();
 
 
+        System.out.println(w1.health);
+        System.out.println(n1.health);
+        System.out.println(n1.strength);
+        System.out.println(s1.health);
     }
-}
+    }
+

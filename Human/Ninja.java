@@ -1,6 +1,7 @@
 public class Ninja extends Human {
     public Ninja(){
         super(3);
+        this.health=100;
         this.stealth = 10;
     }
 
