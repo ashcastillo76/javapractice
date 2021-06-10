@@ -8,11 +8,11 @@ public class Samurai extends Human {
 
     public void deathBlow(Human target){
         target.health = 0;
-        this.health= this.health * (50/100);
+        this.health *= 0.5;
     }
 
     public void meditate(){
-        this.health += (this.health * 0.5);
+        this.health += (this.health *(50/100));
     }
 
     public static int howMany(){
