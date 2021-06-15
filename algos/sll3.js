@@ -120,9 +120,10 @@ class SLL {
 var myList = new SLL();
 
 console.log("Building the list...");
+//adding new nodes
 myList.addToFront(new Node(10));
 myList.addToFront(new Node(20));
-myList.addToFront(new Node(30));
+myList.addToFront(new Node(30)) 
 myList.addToFront(new Node(40));
 myList.addToFront(new Node(50));
 

@@ -24,7 +24,7 @@ public class BankAccountTest {
 		
 		b2.setCheckingBalance(500);
 		b2.setSavingsBalance(1000);
-		b2.funds();
+		
 
 	}
 
