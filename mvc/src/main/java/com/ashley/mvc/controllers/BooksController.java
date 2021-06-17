@@ -1,7 +1,7 @@
 package com.ashley.mvc.controllers;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import javax.validation.Valid;
 
@@ -51,8 +51,8 @@ public class BooksController {
     
     @RequestMapping(value="/books/{id}")
     public String show(@PathVariable("id") Long id, Model model) {
-    	Optional<Book> b = Optional.of(bookService.findBook(id));
-    	model.addAttribute("b", b);
+    	Book book = bookService.findBook(id);
+    	model.addAttribute("book", book);
     	return "/books/show.jsp";
     }
 }
