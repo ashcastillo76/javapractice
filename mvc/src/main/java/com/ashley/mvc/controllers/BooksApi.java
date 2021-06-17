@@ -14,7 +14,6 @@ import com.ashley.mvc.services.BookService;
 @RestController
 public class BooksApi {
 	private final BookService bookService;
-	
 	public BooksApi(BookService bookService) {
 		this.bookService = bookService;
 	}
@@ -45,8 +44,9 @@ public class BooksApi {
 	        return book;
 	    }
 	    
+	    
 //	    deletes a book from the database
-	    @RequestMapping(value="/api/books/{id}", method=RequestMethod.DELETE)
+	    @RequestMapping(value="/api/books/{id}/delete", method=RequestMethod.DELETE)
 	    public void destroy(@PathVariable("id") Long id) {
 	        bookService.deleteBook(id);
 	    }

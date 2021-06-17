@@ -54,7 +54,7 @@ public class Book {
     }
     
     
- 
+// getters and setters
     public Long getId() {
 		return id;
 	}
@@ -97,6 +97,8 @@ public class Book {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+//	
 	@PrePersist
     protected void onCreate(){
         this.createdAt = new Date();
