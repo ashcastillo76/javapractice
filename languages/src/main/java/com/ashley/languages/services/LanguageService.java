@@ -3,6 +3,8 @@ package com.ashley.languages.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Service;
 
 import com.ashley.languages.models.Language;
@@ -38,7 +40,7 @@ public class LanguageService {
 	            return null;
 	        }
 	    }
-//	    updates a language
+//	    updates a language for API only
 	    public Language updateLanguage(Long id, String name, String creator, Double version) {
 	        Optional<Language> optionalLanguage = languageRepo.findById(id);
 	        if(optionalLanguage.isPresent()) {
@@ -53,12 +55,22 @@ public class LanguageService {
 	        }
 	    }
 	    
+//	    update whole object
+	    public Language updateLanguageObject(Language l) {
+	    	return languageRepo.save(l);
+//	    	can also call the create function
+	    }
+	    
 //	    deletes a language
 	    public Language deleteLanguage(Long id) {
 	         languageRepo.deleteById(id);
 	         return null;
 	    
 	    }
+		public void save(@Valid Language language) {
+			languageRepo.save(language);
+			
+		}
 	}
 
 

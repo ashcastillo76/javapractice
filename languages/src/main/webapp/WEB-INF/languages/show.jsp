@@ -14,7 +14,7 @@
 	<p>Creator: <c:out value="${language.creator}"/></p>
 	<p>version: <c:out value="${language.version}"/></p>
 	<a href="/languages/${language.id}/edit">Edit Language</a>
-	<form action="/languages/${language.id}" method="post">
+	<form action="/languages/${language.id}/destroy" method="POST">
 	    <input type="hidden" name="_method" value="delete">
 	    <input type="submit" value="Delete">
 	</form>
