@@ -2,7 +2,6 @@ package com.ashley.languages.controllers;
 
 import java.util.List;
 
-
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -37,14 +36,14 @@ public class LanguagesController {
 //	    form new language
 	    @RequestMapping("/languages/new")
 	    public String newLanguage(@ModelAttribute("language") Language language) {
-	        return "/languages/new.jsp";
+	        return "/languages/index.jsp";
 	    }
 	    
 //	    post method
 	    @RequestMapping(value="/languages", method=RequestMethod.POST)
 	    public String create(@Valid @ModelAttribute("language") Language language, BindingResult result) {
 	        if (result.hasErrors()) {
-	            return "/languages/new.jsp";
+	            return "/languages/index.jsp";
 	        } else {
 	            languageService.createLanguage(language);
 	            return "redirect:/languages";
@@ -57,7 +56,34 @@ public class LanguagesController {
 	    	model.addAttribute("language", language);
 	    	return "/languages/show.jsp";
 	    }
-	}
+	    
+//	    edit language
+	    @RequestMapping("/languages/{id}/edit")
+	    public String edit(@PathVariable("id") Long id, Model model) {
+	        Language language = languageService.findLanguage(id);
+	        model.addAttribute("language", language);
+	        return "/languages/edit.jsp";
+	    }
+	    
+//put request to update edit
+	    @RequestMapping(value="/languages/{id}", method=RequestMethod.PUT)
+	    public String update(@Valid @ModelAttribute("language") Language language, BindingResult result) {
+	        if (result.hasErrors()) {
+	            return "/languages/edit.jsp";
+	        } else {
+	            languageService.createLanguage(language);
+	            return "redirect:/languages";
+	        }
+	   
+	    }
+	    
+	    @RequestMapping(value="/languages/{id}/destroy", method=RequestMethod.DELETE)
+	    public String destroy(@PathVariable("id") Long id) {
+	    	languageService.deleteLanguage(id);
+	        return "redirect:/languages";
+	        }
+}
+	
 
 	
 	

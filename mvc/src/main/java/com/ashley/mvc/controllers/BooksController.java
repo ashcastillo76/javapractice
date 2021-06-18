@@ -32,7 +32,7 @@ public class BooksController {
         return "/books/index.jsp";
     }
     
-//    form new book
+//    new book form
     @RequestMapping("/books/new")
     public String newBook(@ModelAttribute("book") Book book) {
         return "/books/new.jsp";

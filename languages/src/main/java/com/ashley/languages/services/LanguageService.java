@@ -42,12 +42,12 @@ public class LanguageService {
 	    public Language updateLanguage(Long id, String name, String creator, Double version) {
 	        Optional<Language> optionalLanguage = languageRepo.findById(id);
 	        if(optionalLanguage.isPresent()) {
-	            Language lang = optionalLanguage.get();
-	            lang.setName(name);
-	            lang.setCreator(creator);
-	            lang.setVersion(version);
+	            Language language = optionalLanguage.get();
+	            language.setName(name);
+	            language.setCreator(creator);
+	            language.setVersion(version);
 	          
-	            return languageRepo.save(lang);
+	            return languageRepo.save(language);
 	        } else {
 	            return null;
 	        }
