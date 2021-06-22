@@ -11,13 +11,8 @@ import com.sun.xml.bind.v2.model.core.ID;
 @Repository
 public interface LanguageRepo extends CrudRepository<Language, Long> {
 
-		// this method retrieves all books
-		List<Language> findAll();
-	
-	  
-	    List<Language> findById(ID id);
-	  
-	}
+	// this method retrieves all books
+	List<Language> findAll();
 
-	
 
+}

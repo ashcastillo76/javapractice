@@ -1,5 +1,6 @@
 package com.ashley.relationships.controllers;
 
+
 import java.util.List;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ashley.relationships.models.Person;
-import com.ashley.relationships.models.License;
-import com.ashley.relationships.services.RelationshipService;
+import com.ashley.relationships.services.PersonService;
 
 @RestController
 public class PersonsApi {
@@ -28,8 +28,8 @@ public class PersonsApi {
 
 //			  post method
 		@RequestMapping(value = "/api/persons", method = RequestMethod.POST)
-		public Person create(@RequestParam(value = "fname") String fname, @RequestParam(value = "lname") String lname) {
-			Person person = new Person(fname, lname);
+		public Person create(@RequestParam(value = "FirstName") String FirstName, @RequestParam(value = "LastName") String LastName) {
+			Person person = new Person(FirstName, LastName);
 			return personService.createPerson(person);
 		}
 
@@ -56,4 +56,3 @@ public class PersonsApi {
 
 	}
 
-}

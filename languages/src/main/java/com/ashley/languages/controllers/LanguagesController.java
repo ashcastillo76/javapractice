@@ -29,7 +29,7 @@ public class LanguagesController {
 	public String redirect() {
 		return "redirect:/languages";
 	}
-	
+
 //	    shows all languages
 	@RequestMapping("/languages")
 	public String index(Model model) {
@@ -39,7 +39,7 @@ public class LanguagesController {
 		return "/languages/index.jsp";
 	}
 
-//	    form new language
+//	    form for a new language
 	@RequestMapping("/languages/new")
 	public String newLanguage(@ModelAttribute("language") Language language) {
 		return "/languages/index.jsp";
@@ -56,6 +56,7 @@ public class LanguagesController {
 		}
 	}
 
+//	show
 	@RequestMapping(value = "/languages/{id}")
 	public String show(@PathVariable("id") Long id, Model model) {
 		Language language = languageService.findLanguage(id);
@@ -73,12 +74,9 @@ public class LanguagesController {
 
 //put request to update edit
 	@RequestMapping(value = "/languages/{id}/edit", method = RequestMethod.PUT)
-	public String update(@Valid @ModelAttribute("language") Language language, BindingResult result, Model model){
-		System.out.println("hello");
+	public String update(@Valid @ModelAttribute("language") Language language, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			System.out.println(result);
-//			language.setId(id);
-//			model.addAttribute("language", language);
 			return "/languages/edit.jsp";
 		} else {
 			languageService.updateLanguageObject(language);

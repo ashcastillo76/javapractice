@@ -27,8 +27,13 @@ public class Person {
  @OneToOne(mappedBy="person", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
  private License license;
  
- public Person() {
-     
+ public Person() {  
+ }
+ 
+ public Person(String FirstName, String LastName) {
+     this.firstName = FirstName;
+     this.lastName = LastName;
+
  }
  // ...
  // getters and setters 

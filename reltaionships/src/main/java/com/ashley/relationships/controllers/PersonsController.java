@@ -17,7 +17,7 @@ import com.ashley.relationships.services.PersonService;
 
 @Controller
 public class PersonsController {
-		private final personService personService;
+		private final PersonService personService;
 
 		public PersonsController(PersonService personService) {
 			this.personService = personService;
@@ -29,19 +29,19 @@ public class PersonsController {
 			return "redirect:/persons";
 		}
 		
-//		    shows all languages
+//		    shows all persons
 		@RequestMapping("/persons")
 		public String index(Model model) {
-			List<Person> language = personService.allPersons();
+			List<Person> person = PersonService.allPersons();
 			model.addAttribute("persons", new Person());
 			model.addAttribute("person", person);
 			return "/persons/index.jsp";
 		}
 
-//		    form new language
+//		    form new person
 		@RequestMapping("/persons/new")
 		public String newPerson(@ModelAttribute("person") Person person) {
-			return "/persons/index.jsp";
+			return "/persons/{id}/show.jsp";
 		}
 
 //		    post method
@@ -96,4 +96,4 @@ public class PersonsController {
 	
 	
 	
-}
+
