@@ -10,13 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>All Categories</h1>
 
-	 
-	 <c:forEach items="${categories}" var="c">
-	 	<p><a href="/categories/${c.id}"><c:out value="${c.name}"></c:out></a></p>
-	 
-	 </c:forEach>
-	<a href="products/new">Create a Product!</a>
 </body>
 </html>

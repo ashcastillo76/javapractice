@@ -11,7 +11,7 @@
 </head>
 <body>
 	<h1>New Product</h1>
-	<form:form action="/categories/new" method="post" modelAttribute="category">
+	<form:form action="/products/new" method="post" modelAttribute="product">
 	    <p>
 	        <form:label path="name">Name:</form:label>
 	        <form:errors path="name"/>

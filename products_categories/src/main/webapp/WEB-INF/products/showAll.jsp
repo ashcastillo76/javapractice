@@ -14,7 +14,7 @@
 
 	 
 	 <c:forEach items="${products}" var="p">
-	 	<p><a href="/products/${p.id}/edit"><c:out value="${p.name}"></c:out></a></p>
+	 	<p><a href="/products/${p.id}"><c:out value="${p.name}"></c:out></a></p>
 	 
 	 </c:forEach>
 	<a href="categories/new">Create a Category!</a>

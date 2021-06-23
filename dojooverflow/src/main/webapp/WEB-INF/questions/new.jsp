@@ -7,16 +7,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title></title>
 </head>
 <body>
-	<h1>All Categories</h1>
-
-	 
-	 <c:forEach items="${categories}" var="c">
-	 	<p><a href="/categories/${c.id}"><c:out value="${c.name}"></c:out></a></p>
-	 
-	 </c:forEach>
-	<a href="products/new">Create a Product!</a>
+<h1>What is your question?</h1>
+	<form:form action="/questions/new" method="post" modelAttribute="question">
+	    <p>
+	        <form:label path="textQ">Question:</form:label>
+	        <form:errors path="textQ"/>
+	        <form:textarea path="textQ"/>
+	    </p>
+	     
+	  
+	    <input type="submit" value="Submit"/>
+	</form:form>    
 </body>
 </html>

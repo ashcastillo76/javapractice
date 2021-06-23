@@ -13,12 +13,12 @@
 	<h1><c:out value="${product.name}"></c:out></h1>
 	
 	<ul>
-		<c:forEach items="${category.name}" var="p">
+		<c:forEach items="${product.categories}" var="c">
 			<li><c:out value="${c.name}"></c:out></li>
 		</c:forEach>
 	</ul>
 	
-	<form action="/category/${product.id}/edit" method="post">
+	<form action="/products/${product.id}/edit" method="post">
 		<label for="category">Add A Category:</label>
 		<select name="category_id">
 			<option selected disabled >Please Select a Category</option>
