@@ -28,7 +28,7 @@ public class Question {
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 	    @NotNull
-	    @Size(min = 3, max = 255, message= "You must have a question with at least 3 characters")
+	    @Size(min = 3, max = 255, message= "You must enter a question")
 	    private String textQ;
 	    @Column(updatable=false)
 	    private Date createdAt;

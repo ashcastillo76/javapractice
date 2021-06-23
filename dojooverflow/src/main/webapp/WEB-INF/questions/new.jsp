@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="/css/custom.css" />
 <meta charset="ISO-8859-1">
 <title></title>
 </head>
@@ -14,7 +15,7 @@
 	<form:form action="/questions/new" method="post" modelAttribute="question">
 	    <p>
 	        <form:label path="textQ">Question:</form:label>
-	        <form:errors path="textQ"/>
+	        <form:errors path="textQ" cssClass="errors"/>
 	        <form:textarea path="textQ"/>
 	    </p>
 	     

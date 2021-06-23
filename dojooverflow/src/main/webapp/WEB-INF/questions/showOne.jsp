@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="/css/custom.css" />
 <meta charset="ISO-8859-1">
 <title>${question.textQ}</title>
 </head>
@@ -18,13 +19,19 @@
 		</c:forEach>
 	</ul>
 	
-	<form:form action="/answers/new" method="post" modelAttribute="answer">
-		<form:label path="textA">Add An Answer:</form:label>
-		<form:errors path="textA"/>
-		<form:textarea path="textA"></form:textarea>
-		<form:hidden path="question" value="${question.id}"/>
-		<input type="submit" value="Add" />
-	</form:form>
 
+		<form:form action="/answers/new" method="post" modelAttribute="answer">
+			<p>
+				<form:label path="textA">Add An Answer:</form:label>
+			</p>
+			<p>
+				<form:errors path="textA" cssClass="errors"/>
+				<form:textarea path="textA"></form:textarea>
+			</p>
+			<%--this hidden path attaches the answer to a specific question id --%>
+			<form:hidden path="question" value="${question.id}"/>
+			<input type="submit" value="Add" />
+		</form:form>
+	
 </body>
 </html>

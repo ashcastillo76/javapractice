@@ -42,7 +42,6 @@ public class QuestionController {
 		@RequestMapping("/questions")
 		public String index(Model model) {
 			List<Question> questions = questionService.allQuestions();
-			System.out.println(questions);
 			model.addAttribute("questions", questions);
 			return "/questions/showAll.jsp";
 		}

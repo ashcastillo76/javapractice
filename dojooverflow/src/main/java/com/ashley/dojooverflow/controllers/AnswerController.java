@@ -14,9 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ashley.dojooverflow.models.Answer;
-import com.ashley.dojooverflow.models.Question;
-import com.ashley.dojooverflow.services.QuestionService;
 import com.ashley.dojooverflow.services.AnswerService;
+import com.ashley.dojooverflow.services.QuestionService;
 
 @Controller
 public class AnswerController {
@@ -35,7 +34,7 @@ public class AnswerController {
 			return "/answers/showAll.jsp";
 		}
 
-//			    form for a new Category
+//			    form for a new answer
 		@RequestMapping("/answers/new")
 		public String newCategory(@ModelAttribute("answer") Answer answer, Model model) {
 			model.addAttribute("answers", answerService.allAnswers());
@@ -46,10 +45,10 @@ public class AnswerController {
 		@RequestMapping(value = "/answers/new", method = RequestMethod.POST)
 		public String create(@Valid @ModelAttribute("answer") Answer answer, BindingResult result) {
 			if (result.hasErrors()) {
-				return "/answers/new.jsp";
+				return "/answers/new";
 			} else {
-				answerService.createAnswer(answer);
-				return "redirect:/questions";
+				Answer newAnswer = answerService.createAnswer(answer);
+				return "redirect:/questions/" + newAnswer.getQuestion().getId();
 			}
 		}
 
@@ -69,7 +68,7 @@ public class AnswerController {
 			return "/answers/edit.jsp";
 		}
 
-////			post request to add product to a answer
+////			post request to add question to an answer 
 //		@RequestMapping(value = "/answers/{answer_id}/edit", method = RequestMethod.POST)
 //		public String addAnswerToQuestion(@PathVariable("answer_id") Long answer_id,
 //				@RequestParam("question_id") Long question_id) {
