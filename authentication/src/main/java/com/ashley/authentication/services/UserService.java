@@ -2,59 +2,70 @@ package com.ashley.authentication.services;
 
 
 import java.util.Optional;
+
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+
+import com.ashley.authentication.models.LoginUser;
 import com.ashley.authentication.models.User;
 import com.ashley.authentication.repositories.UserRepo;
-
 @Service
 public class UserService {
-	private final UserRepo userRepo;
-
-	public UserService(UserRepo userRepo) {
-		this.userRepo = userRepo;
-	}
-
-	// register user and hash their password
-
-	public User registerUser(User user) {
-		String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
-		user.setPassword(hashed);
-		return userRepo.save(user);
-	}
-	// find user by email
-
-	public User findByEmail(String email) {
-		return userRepo.findByEmail(email);
-	}
-
-	// find user by id
-	public User findUserById(Long id) {
-		Optional<User> u = userRepo.findById(id);
-
-		if (u.isPresent()) {
-			return u.get();
-		} else {
-			return null;
-		}
-	}
-
-
-	// authenticate user
-
-	public boolean authenticateUser(String email, String password) {
-        // first find the user by email
-        User user = userRepo.findByEmail(email);
-        // if we can't find it by email, return false
-        if(user == null) {
-            return false;
+    
+    @Autowired
+    private UserRepo userRepo;
+    
+    public User register(User newUser, BindingResult result) {
+//        checking uniqueness
+    	if(userRepo.findByEmail(newUser.getEmail()).isPresent()) {
+            result.rejectValue("email", "Unique", "This email is already in use!");
+        }
+//        do passwords match?
+        if(!newUser.getPassword().equals(newUser.getConfirm())) {
+            result.rejectValue("confirm", "Matches", "The Confirm Password must match Password!");
+        }
+//        errors? return null
+        if(result.hasErrors()) {
+            return null;
         } else {
- // if the passwords match, return true, else, return false
-            if(BCrypt.checkpw(password, user.getPassword())) {
-                return true;
-            } else {
-                return false;
-            }
+//        	otherwise hash password and add salt, set the password to the hashed password and save newUser
+            String hashed = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
+            newUser.setPassword(hashed);
+            return userRepo.save(newUser);
         }
     }
+    
+    public User login(LoginUser newLogin, BindingResult result) {
+        if(result.hasErrors()) {
+            return null;
+        }
+        Optional<User> potentialUser = userRepo.findByEmail(newLogin.getEmail());
+        if(!potentialUser.isPresent()) {
+            result.rejectValue("email", "Unique", "Unknown email!");
+            return null;
+        }
+        User user = potentialUser.get();
+        if(!BCrypt.checkpw(newLogin.getPassword(), user.getPassword())) {
+            result.rejectValue("password", "Matches", "Invalid Password!");
+        }
+        if(result.hasErrors()) {
+            return null;
+        } else {
+            return user;
+        }
+    }
+    
+    public User findUserById(Long id) {
+    	Optional<User> u = userRepo.findById(id);
+    	
+    	if(u.isPresent()) {
+            return u.get();
+    	} else {
+    	    return null;
+    	}
+    }
+    
+    
 }
