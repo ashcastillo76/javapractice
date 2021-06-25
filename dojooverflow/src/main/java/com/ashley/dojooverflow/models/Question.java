@@ -37,14 +37,14 @@ public class Question {
 	    @OneToMany(mappedBy="question", fetch = FetchType.LAZY)
 	    private List<Answer> answers;
 	    
-//	    @ManyToMany(fetch = FetchType.LAZY)
-//	    @JoinTable(
-//	        name = "questions_tags", 
-//	        joinColumns = @JoinColumn(name = "question_id"), 
-//	        inverseJoinColumns = @JoinColumn(name = "tag_id")
-//	    )
-//	    @JsonIgnore
-//	    private List<Tag> tags;
+	    @ManyToMany(fetch = FetchType.LAZY)
+	    @JoinTable(
+	        name = "questions_tags", 
+	        joinColumns = @JoinColumn(name = "question_id"), 
+	        inverseJoinColumns = @JoinColumn(name = "tag_id")
+	    )
+	    @JsonIgnore
+	    private List<Tag> tags;
 	    
 //	    frontend Question object creation from a form submission
 	    public Question() {
@@ -125,6 +125,16 @@ public class Question {
 
 		public void setAnswers(List<Answer> answers) {
 			this.answers = answers;
+		}
+
+
+		public List<Tag> getTags() {
+			return tags;
+		}
+
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
 		}
 
 

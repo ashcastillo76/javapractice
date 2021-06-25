@@ -22,8 +22,6 @@ import com.ashley.dojooverflow.services.TagService;
 @Controller
 public class TagController {
 
-			@Autowired
-			private AnswerService answerService;
 
 			@Autowired
 			private QuestionService questionService;

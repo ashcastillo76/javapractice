@@ -12,15 +12,17 @@
 </head>
 <body>
 <h1>What is your question?</h1>
-	<form:form action="/questions/new" method="post" modelAttribute="question">
+	<form action="/questions/new" method="post">
 	    <p>
-	        <form:label path="textQ">Question:</form:label>
-	        <form:errors path="textQ" cssClass="errors"/>
-	        <form:textarea path="textQ"/>
+	        <label>Question:</label>
+	        <textarea name="textQ" id="textQ" cols="30" rows="10"></textarea>
 	    </p>
-	     
+	    <p>
+	    	<label>Tag:</label>
+	    	<input type="text" name= "tag" placeholder="Enter a subject for your question"/>
+	    </p>
 	  
-	    <input type="submit" value="Submit"/>
-	</form:form>    
+	    	<input type="submit" value="Submit"/>
+	</form>    
 </body>
 </html>

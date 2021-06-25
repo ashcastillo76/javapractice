@@ -76,9 +76,9 @@ public class UserController {
 //	renders homepage and finds user by id and saves to session
 	@GetMapping(value = "/home")
 	public String home(HttpSession session, Model model) {
-		Long userId = (Long) session.getAttribute("userId");
-		User u = userService.findUserById(userId);
-		model.addAttribute("user", u);
+		Long id = (Long) session.getAttribute("user_id");
+		User user = userService.findUserById(id);
+		model.addAttribute("user", user);
 		return "homePage.jsp";
 	}
 

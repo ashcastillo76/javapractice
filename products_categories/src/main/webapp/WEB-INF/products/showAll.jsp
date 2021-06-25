@@ -15,8 +15,12 @@
 	 
 	 <c:forEach items="${products}" var="p">
 	 	<p><a href="/products/${p.id}"><c:out value="${p.name}"></c:out></a></p>
-	 
+	 	<form action="/products/${p.id}/destroy" method="POST">
+			<input type="hidden" name="_method" value="delete"> 
+			<input type="submit" value="Delete">
+		</form>
 	 </c:forEach>
 	<a href="categories/new">Create a Category!</a>
+	<a href="productss/new">Create a Product!</a>
 </body>
 </html>

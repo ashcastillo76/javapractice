@@ -30,8 +30,8 @@
 			</p>
 			<%--this hidden path attaches the answer to a specific question id --%>
 			<form:hidden path="question" value="${question.id}"/>
-			<input type="submit" value="Add" />
-		</form:form>
+				<input type="submit" value="Add" />
+			</form:form>
 	
 </body>
 </html>
