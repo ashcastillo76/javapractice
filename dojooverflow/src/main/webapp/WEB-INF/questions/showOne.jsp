@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1><c:out value="${question.textQ}"></c:out></h1>
-	
+<h1>Tags:<c:out value="${question.tags}"></c:out></h1>	
 	<ul>
 		<c:forEach items="${question.answers}" var="q">
 			<li><c:out value="${q.textA}"></c:out></li>

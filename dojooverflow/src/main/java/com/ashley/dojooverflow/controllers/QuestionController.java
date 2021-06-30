@@ -21,6 +21,7 @@ import com.ashley.dojooverflow.services.QuestionService;
 import com.ashley.dojooverflow.services.TagService;
 
 
+
 @Controller
 public class QuestionController {
 		
@@ -56,11 +57,16 @@ public class QuestionController {
 
 //		    post method
 		@RequestMapping(value = "/questions/new", method = RequestMethod.POST)
-		public String create(@Valid @ModelAttribute("question") Question question, BindingResult result) {
+		public String create(@Valid @ModelAttribute("question") Question question, BindingResult result, @RequestParam("question_id") Long question_id, @RequestParam("tag_id")Long tag_id) {
 			if (result.hasErrors()) {
 				return "/questions/new.jsp";
 			}else {
 				questionService.createQuestion(question);
+				Question myQuestion = questionService.findQuestion(question_id);
+				Tag myTag = tagService.findTag(tag_id);
+
+				question.getTags().add(myTag);
+				questionService.updateQuestionObject(question);
 //				tagService.createTag(tags);
 				return "redirect:/questions";
 			}
@@ -85,6 +91,22 @@ public class QuestionController {
 		
 			return "redirect:/questions/" + question_id ;
 		}
+		
+////		post request to add tag to a question
+//	@RequestMapping(value = "/questions/{question_id}/tags/edit", method = RequestMethod.POST)
+//	public String addTagToQuestion(@PathVariable("question_id") Long question_id,
+//			@RequestParam("tag_id") Long tag_id) {
+//		Question myQuestion = questionService.findQuestion(question_id);
+//		Tag myTag = tagService.findTag(tag_id);
+//	
+//
+//		myQuestion.getTags().add(myTag);
+//		questionService.updateQuestionObject(myQuestion);
+//
+//		return "redirect:/questions/" + question_id;
+//	}
+	
+
 
 	// put request to update edit
 		@RequestMapping(value = "/questions/{question_id}/edit", method = RequestMethod.PUT)
