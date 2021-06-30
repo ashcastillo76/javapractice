@@ -1,6 +1,8 @@
 package com.ashley.beltexam.services;
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,7 +39,7 @@ public class UserService {
 	        }
 	    }
 	    
-	    public User login(LoginUser newLogin, BindingResult result) {
+	    public User login(LoginUser newLogin, BindingResult result, HttpSession session) {
 	        if(result.hasErrors()) {
 	            return null;
 	        }
@@ -53,6 +55,7 @@ public class UserService {
 	        if(result.hasErrors()) {
 	            return null;
 	        } else {
+	        	session.setAttribute("user", user);
 	            return user;
 	        }
 	    }

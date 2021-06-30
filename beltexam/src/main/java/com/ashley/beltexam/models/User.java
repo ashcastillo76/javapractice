@@ -1,12 +1,14 @@
 package com.ashley.beltexam.models;
 
 
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
@@ -21,8 +23,8 @@ public class User {
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 	    
-	    @NotEmpty(message="Username is required!")
-	    @Size(min=3, max=30, message="Username must be between 3 and 30 characters")
+	    @NotEmpty(message="name is required!")
+	    @Size(min=3, max=30, message="name must be between 3 and 30 characters")
 	    private String userName;
 	    
 	    @NotEmpty(message="Email is required!")
@@ -38,6 +40,10 @@ public class User {
 	    @Size(min=8, max=128, message="Confirm Password must be between 8 and 128 characters")
 	    private String confirm;
 	  
+	    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+	    private List<Idea> ideas;
+	    
+	    
 	    public User() {}
 
 //		getters and setters
@@ -49,11 +55,11 @@ public class User {
 			this.id = id;
 		}
 
-		public String getUserName() {
+		public String getName() {
 			return userName;
 		}
 
-		public void setUserName(String userName) {
+		public void setName(String userName) {
 			this.userName = userName;
 		}
 
