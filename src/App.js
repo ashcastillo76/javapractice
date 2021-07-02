@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Resume from "./components/Resume";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
   return (
