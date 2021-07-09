@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 *{
     margin:0;
     padding:0;
@@ -59,7 +61,7 @@
 }
 
 #mainBody{
-    background-image:url('../images/succ.png');
+    background-image:url(images/succ.png);
     background-color: #eae9e5;
     margin-top:0px;
     margin-bottom:5px;

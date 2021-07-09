@@ -1,4 +1,10 @@
 import React from "react";
+import Headshot from '../images/Headshot.JPEG';
+import boys_cool from '../images/boys_cool.jpg';
+import headshot_light from '../images/headshot_light.jpg';
+import honeymoon from '../images/honeymoon.jpg';
+import succ from '../images/succ.png';
+
 
 export default function About() {
 return(
@@ -14,7 +20,7 @@ return(
             <div class="row justify-content-center">
                 <div class="col-4">
                     <div id="picBox">
-                        <img src="static/images/Headshot.JPEG"/>
+                        <img src={Headshot}/>
                     </div>
                 </div>
                 <div class="col-4">
@@ -33,13 +39,13 @@ return(
         <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="./static/images/honeymoon.jpg" class="d-block w-100" alt="banffBeauty"/>
+                    <img src={honeymoon} class="d-block w-100" alt="banffBeauty"/>
                 </div>
                 <div class="carousel-item">
-                    <img src="./static/images/Jude.JPEG" class="d-block w-100" alt="..."/>
+                    <img src={boys_cool} class="d-block w-100" alt="..."/>
                 </div>
                 <div class="carousel-item">
-                    <img src="./static/images/headshot_light.jpg" class="d-block w-100" alt="..."/>
+                    <img src={headshot_light} class="d-block w-100" alt="..."/>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
