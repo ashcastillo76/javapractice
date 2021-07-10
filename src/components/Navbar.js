@@ -1,17 +1,18 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
 
 export default function Navbar() {
     return(
 
         <div id="header">
-                <h1><a href="#containerMain">Ashley Castillo</a></h1>
+                <h1><NavLink to="/">Ashley Castillo</NavLink></h1>
                 <div id="nav">
                     <ul>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/resume">Resume</a></li>
-                        <li><a href="/projects">Projects</a></li>
-                        <li><a href="/skills">Skills</a></li>
-                        <li><a href="/contact">Contact</a></li>
+                        <li><NavLink to="/about">About</NavLink></li>
+                        <li><NavLink to= "/resume">Resume</NavLink></li>
+                        <li><NavLink to="/projects">Projects</NavLink></li>
+                        <li><NavLink to="/skills">Skills</NavLink></li>
+                        <li><NavLink to="/contact">Contact</NavLink></li>
                     </ul>
                 </div>
             </div>

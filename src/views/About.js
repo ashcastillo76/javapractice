@@ -3,19 +3,13 @@ import Headshot from '../images/Headshot.JPEG';
 import boys_cool from '../images/boys_cool.jpg';
 import headshot_light from '../images/headshot_light.jpg';
 import honeymoon from '../images/honeymoon.jpg';
-import succ from '../images/succ.png';
+
 
 
 export default function About() {
 return(
     <section id ="about">
-        <div id="mainBody">
-            
-            <div id="name">
-                <h2>Hi! I'm Ashley.</h2>
-                    <p>"A programmer is a person who fixes a problem you don't know you have in a way that you don't understand."  -via HongKiat</p>
-            </div>
-        </div>
+       
         <div id="about">
             <div class="row justify-content-center">
                 <div class="col-4">
@@ -59,7 +53,7 @@ return(
         </div>
     </div>
 </div>
-    </section>
+</section>
 );
 
 }

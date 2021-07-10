@@ -20,20 +20,7 @@ export default function Projects() {
                     </figure>
                 </div>
 
-
-                <div class="row">
-                    <div class="col">
-                    Project 3
-                    </div>
-
-                    <div class="col">
-                    Project 4
-                    </div>
-                    <div class="col">
-                    Project 5
-                    </div>
                 </div>
-            </div>
             </div>
     );
 }

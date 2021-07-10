@@ -16,14 +16,13 @@
 
 #header{
     background-color: #f7f7f7;
-    height: 70px;
     margin: 20px 0px 0px;
     display:flex;
     justify-content: space-between;
     padding-top:20px;
     position:fixed;
     top:-3%;
-    width: 1820px;
+    min-width: 1200px;
     height:80px;
     box-shadow: 3px 3px #e4e2e2;
 }
@@ -40,13 +39,12 @@
     border: 1px,solid;
     height: 60px;
     width: 700px;
-    margin-left: 55px;
 }
 
 #nav ul{
     list-style-type: none;
     text-align: center;
-    padding-top: 17px;
+    padding-top: 10px;
 }
 #nav li{
     display:inline;
@@ -64,12 +62,12 @@
     background-image:url(images/succ.png);
     background-color: #eae9e5;
     margin-top:0px;
-    margin-bottom:5px;
     margin-left: 40px;
     margin-right:40px;
     object-fit:cover;
     background-position: right;
     background-repeat: no-repeat;
+    box-shadow: 3px 3px 3px 3px #e4e2e2
 }
 
 #name{
@@ -94,6 +92,7 @@
     font-size: 35px;
     padding-left:30px;
     margin-left:100px;
+    width:600px;
 }
 
 #about{
