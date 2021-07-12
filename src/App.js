@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import About from "./views/About";
 import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
+import Footer from './components/Footer';
 import Projects from "./views/Projects";
 import Skills from "./views/Skills";
 import Resume from "./views/Resume";
@@ -11,6 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
   return (
+    <div>
     <Router>
       <Navbar/>
       <Switch>
@@ -39,6 +41,9 @@ export default function App() {
         </Route>
         
       </Switch>
+      
     </Router>
+    <Footer/>
+    </div>
   );
 }

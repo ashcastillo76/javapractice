@@ -1,16 +1,16 @@
 import React from 'react'
-import succ from '../images/succ.png';
+import QuoteAndAuthor from '../components/QuoteAndAuthor';
+
 
 const Home = () => {
     return (
         <div>
-            <div id="mainBody">
-            
-            <div id="name">
+            <div className="mainBody">
+            <div className="name">
                 <h2>Hi! I'm Ashley.</h2>
-                <p>"A programmer is a person who fixes a problem you don't know you have in a way that you don't understand."  -via HongKiat</p>
+                <p><QuoteAndAuthor/></p>
             </div>
-        </div>
+            </div>
         </div>
     )
 }

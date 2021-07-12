@@ -1,15 +1,17 @@
 import React from "react";
+import ctgr from '../images/ctgr.png';
+
 
 export default function Projects() {
 
     return(
-        <div id="projects">
-            <div class="container">
+            <div className="container">
                 <h2>Projects</h2>
                 <div class="row">
                     <figure id="fig1">
                         <div class="col">
-                        Project 1 
+                        Confederated Tribes of Grand Ronde 
+                        <img src={ctgr}/>
                         </div>
                     </figure>
 
@@ -19,8 +21,6 @@ export default function Projects() {
                     </div>
                     </figure>
                 </div>
-
                 </div>
-            </div>
     );
 }

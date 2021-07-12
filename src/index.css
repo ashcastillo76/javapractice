@@ -2,32 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 *{
     margin:0;
     padding:0;
 }
 
-#containerMain{
-    background-color:white;
-    margin:auto;
-}
 
-#header{
+.header{
     background-color: #f7f7f7;
-    margin: 20px 0px 0px;
+    margin: 0px 0px 20px;
     display:flex;
     justify-content: space-between;
     padding-top:20px;
-    position:fixed;
     top:-3%;
     min-width: 1200px;
     height:80px;
     box-shadow: 3px 3px #e4e2e2;
 }
 
-#header a{
+.header a{
     font-size: 40px;
     font-family:Sacramento;
     text-decoration: none;
@@ -35,22 +28,21 @@
     padding:20px;
 }
 
-#nav{
-    border: 1px,solid;
+.nav{
+    box-shadow: 3px 3px #e4e2e2;
     height: 60px;
     width: 700px;
 }
 
-#nav ul{
+.nav ul{
     list-style-type: none;
     text-align: center;
     padding-top: 10px;
 }
-#nav li{
+.nav li{
     display:inline;
 }
-
-#nav a{
+.nav a{
     padding:20px;
     font-size: x-large;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -58,10 +50,10 @@
     color:#99abab;
 }
 
-#mainBody{
+.mainBody{
     background-image:url(images/succ.png);
     background-color: #eae9e5;
-    margin-top:0px;
+    margin-top:20px;
     margin-left: 40px;
     margin-right:40px;
     object-fit:cover;
@@ -70,15 +62,15 @@
     box-shadow: 3px 3px 3px 3px #e4e2e2
 }
 
-#name{
+.name{
     min-height:700px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
 }
 
-#name h2{
-    color: #bbc0af;
+.name h2{
+    color: #74837c;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 60px;
     padding-left:100px;
@@ -86,18 +78,17 @@
     margin-top:280px;
 }
 
-#name p{
+.name p{
     color: #bbc0af;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 35px;
-    padding-left:30px;
-    margin-left:100px;
+    margin-left:50px;
     width:600px;
 }
 
-#about{
+.about{
     min-height: 600px;
-    margin-top:200px;
+    margin-top:20px;
     margin-right: 40px;
     margin-left:40px;
 }
@@ -106,16 +97,16 @@
     margin-top:50px;
 }
 
-#picBox{
+.picBox{
     width:400px;
     height: 525px;
     background: radial-gradient(circle, rgba(187,192,175,1) 75%, rgba(140,143,132,1) 100%);
     justify-self:self-start;
-    margin-top:90px;
+    margin-top:20px;
     border-radius: 8px;
 
 }
-#about img{
+.about img{
     object-fit: contain;
     width:400px;
     border: 8px solid #74837c;
@@ -124,7 +115,7 @@
     border-radius: 8px;
 }
 
-#about h1{
+.about h1{
     color:#dc5a43;
     font-family: Sacramento;
     font-size: 70px;
@@ -132,7 +123,7 @@
     padding-top:90px;
 }
 
-#about p{
+.about p{
     color:#74837c;
     font-size: x-large;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -140,31 +131,36 @@
     text-align: left;
 }
 
-#aboutMe2Wrap{
+.aboutMe2Wrap{
     display: flex;
     justify-content: space-around;
-    margin-top:80px;
+    margin-top:20px;
 }
 
 
-#carouselContainer{
+.carouselContainer{
     margin-right:40px;
     margin-left:40px;
     margin-top:70px;
-    margin-bottom:310px;
+    margin-bottom:80px;
     height: 560px;
     width: 450px;
     background: radial-gradient(circle, rgba(187,192,175,1) 75%, rgba(140,143,132,1) 100%);
     border-radius: 8px;
 }
 
-#aboutMe2Wrap p{
+.carousel-caption{
+    color:darkslategrey;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.aboutMe2Wrap p{
     color:#74837c;
     font-size: x-large;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-#aboutMe2Wrap h1{
+.aboutMe2Wrap h1{
     color:#dc5a43;
     font-family: Sacramento;
     padding-top:30px;
@@ -176,7 +172,7 @@
 }
 
 /* container for the header and text to the left of the carousel */
-#leftAbout{
+.leftAbout{
     width:750px;
     height: 700px;
     padding-left: 110px;
@@ -186,42 +182,35 @@
 }
 
 /* main about content to the left of the carousel */
-#leftAbout p{
+.leftAbout p{
     margin-left:150px;
     text-align: right;
-}
-
-.carousel-item{
-    border: 8px solid #74837c;
-    border-radius: 8px;
-
-}
-
-.carousel-item img{
-    height:510px;
-    width: 400px;
 }
 
 /* project section container */
 .container{
     background-color: #f7f7f7;
-    margin-bottom:30px;
-    padding:70px;
+    margin-bottom:20px;
+    padding:20px;
+    min-height: 700px;
+
 }
 
 /* rows of project columns aligns text in the middle */
 .row{
+    justify-content: center;
     text-align: center;
+    font-size: large;
 }
 
 /* selects each column of the project section */
 .col{
     background-color:#e9e8e4;
-    min-height: 400px;
-    width: 500px;
+    min-height: 350px;
     margin:25px;
     border: 8px solid #74837c;
     border-radius: 8px;
+    
 }
 
 /* orange projects header section label */
@@ -229,23 +218,34 @@
     color:#dc5a43;
     font-family: Sacramento;
     font-size: 80px;
+    font-weight:bolder;
+    text-align: center;
+}
+
+.container img{
+    max-width: 67%;
+    margin-left:auto;
+    margin-right:auto;
+    vertical-align: center;
 }
 
 /* containers for the project links */
 #fig1{
-    width:530px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(187,192,175,1) 75%, rgba(140,143,132,1) 100%);
+    width:470px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(136,157,148,100) 45%, rgba(116,131,124,100) 100%);
     margin: 20px;
     border-radius: 8px;
+
 }
 
 #fig2{
     width:470px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(187,192,175,1) 75%, rgba(140,143,132,1) 100%);
+    height: 400px;
+    background: #bbc0af;
     margin: 20px;
     border-radius: 8px;
+
 }
 
 /* contact form section */
@@ -257,8 +257,53 @@
 }
 
 #footer{
+    box-shadow: 3px 3px #e4e2e2;
     background-color: #74837c;
     height: 100px;
     margin-right:40px;
     margin-left:40px;
+}
+
+.resume{
+    width:900px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.resumeHead h1{
+    color:#dc5a43;
+    font-family: Sacramento;
+    font-size: 70px;
+    font-weight:bolder;
+    text-align: center;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+
+.footer{
+    margin-top:30px;
+    padding: 20px;
+    align-items: center;
+    background-color: #74837c;
+    box-shadow: 3px 3px 3px #e4e2e2
+}
+
+.footer img{
+    height: 28px;
+}
+
+.footer img:hover {
+    transform: rotate(45deg);
+    transition: all 0.25s ease-in-out;
+}
+
+.footImgContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left:auto;
+    margin-right:auto;
+    width:200px;
 }
